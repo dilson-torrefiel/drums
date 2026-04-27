@@ -40,6 +40,12 @@ body {
   height: 80px;
   width: 120px;
 }
+.zion-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /* Animations */
 .kick-image,
 .cymbal,
@@ -92,5 +98,9 @@ body {
   .snare-image {
     height: 80px;
     width: 90px;
+  }
+  .zion-image {
+    width: 200px;
+    height: auto;
   }
 }
