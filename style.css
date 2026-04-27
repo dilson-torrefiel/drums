@@ -1,0 +1,96 @@
+body {
+  background: linear-gradient(90deg, #0cc0df, #ffde59);
+}
+
+.drumset {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+.drum {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+}
+.middle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tom3-tom4 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.cymbal {
+  height: 80px;
+  width: 80px;
+}
+.kick-image {
+  height: 250px;
+  width: 200px;
+}
+.snare-image {
+  height: 80px;
+  width: 120px;
+}
+/* Animations */
+.kick-image,
+.cymbal,
+.tom1-image,
+.tom2-image,
+.tom3-image,
+.tom4-image,
+.snare-image {
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+  /* Required to center the rotation/zoom anchor point */
+  transform-origin: center center;
+}
+/* The animation state */
+.is-animating {
+  /* Calls the 'rollAndZoom' keyframes defined below */
+  animation: rollAndZoom 0.6s ease-in-out;
+}
+
+@keyframes rollAndZoom {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .tom3-image {
+    width: 80px;
+    height: 50px;
+  }
+  .tom4-image {
+    width: 80px;
+    height: 50px;
+  }
+  .tom1-image,
+  .tom2-image {
+    width: 100px;
+    height: 120px;
+  }
+  .kick-image {
+    height: 200px;
+    width: 150px;
+  }
+  .snare-image {
+    height: 80px;
+    width: 90px;
+  }
+}

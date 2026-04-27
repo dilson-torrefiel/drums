@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drum Kit</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container my-5 p-4">
+      <h1 class="text-center my-4">Drum Kit</h1>
+      <div class="drumset">
+        <div class="drum left">
+          <div class="hihat-left">
+            <img
+              src="./images/cymbals.png"
+              alt="cymbal"
+              class="cymbal left-cymbal-image"
+            />
+            <audio id="hihat-left-sound" src="./sounds/crash.mp3"></audio>
+          </div>
+          <div class="tom1">
+            <img src="./images/tom1.png" alt="Tom" class="tom1-image" />
+            <audio id="tom1-sound" src="./sounds/tom-1.mp3"></audio>
+          </div>
+        </div>
+        <div class="drum middle">
+          <div class="tom3-tom4">
+            <img src="./images/tom3.png" alt="Tom" class="tom3-image" />
+            <audio id="tom3-sound" src="./sounds/tom-3.mp3"></audio>
+            <img src="./images/tom4.png" alt="Tom" class="tom4-image" />
+            <audio id="tom4-sound" src="./sounds/tom-4.mp3"></audio>
+          </div>
+          <div class="kicks">
+            <img src="./images/kicks.png" alt="Kick" class="kick-image" />
+            <audio id="kick-sound" src="./sounds/kick-bass.mp3"></audio>
+          </div>
+        </div>
+        <div class="drum right">
+          <div class="snare">
+            <img src="./images/snare.png" alt="snare" class="snare-image" />
+            <audio id="snare-sound" src="./sounds/snare.mp3"></audio>
+          </div>
+          <div class="tom2">
+            <img src="./images/tom2.png" alt="Tom" class="tom2-image" />
+            <audio id="tom2-sound" src="./sounds/tom-2.mp3"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./drum-kit.js"></script>
+</html>
