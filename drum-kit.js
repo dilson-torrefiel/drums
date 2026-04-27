@@ -8,86 +8,62 @@
  * Author: Dilson Torrefiel
  * Date: April 2026
  */
-var kicks = document.querySelector(".kick-image");
-var kicksSound = document.getElementById("kick-sound");
-kicks.addEventListener("pointerdown", function () {
-  kicksSound.currentTime = 0;
-  kicksSound.play();
 
-  kicks.classList.add("is-animating");
-  setTimeout(() => {
-    kicks.classList.remove("is-animating");
-  }, 600);
-});
+// Kick event listener using the helper function
+onPointerDown(
+  document.querySelector(".kick-image"),
+  document.getElementById("kick-sound"),
+);
 
-var tom1 = document.querySelector(".tom1-image");
-var tom1Sound = document.getElementById("tom1-sound");
-tom1.addEventListener("pointerdown", function () {
-  tom1Sound.currentTime = 0;
-  tom1Sound.play();
+// Tom 1 event listener using the helper function
+onPointerDown(
+  document.querySelector(".tom1-image"),
+  document.getElementById("tom1-sound"),
+);
 
-  tom1.classList.add("is-animating");
-  setTimeout(() => {
-    tom1.classList.remove("is-animating");
-  }, 600);
-});
+// Tom 2 event listener using the helper function
+onPointerDown(
+  document.querySelector(".tom2-image"),
+  document.getElementById("tom2-sound"),
+);
 
-var tom2 = document.querySelector(".tom2-image");
-var tom2Sound = document.getElementById("tom2-sound");
-tom2.addEventListener("pointerdown", function () {
-  tom2Sound.currentTime = 0;
-  tom2Sound.play();
+// Tom 3 event listener using the helper function
+onPointerDown(
+  document.querySelector(".tom3-image"),
+  document.getElementById("tom3-sound"),
+);
 
-  tom2.classList.add("is-animating");
-  setTimeout(() => {
-    tom2.classList.remove("is-animating");
-  }, 600);
-});
+// Tom 4 event listener using the helper function
+onPointerDown(
+  document.querySelector(".tom4-image"),
+  document.getElementById("tom4-sound"),
+);
 
-var tom3 = document.querySelector(".tom3-image");
-var tom3Sound = document.getElementById("tom3-sound");
-tom3.addEventListener("pointerdown", function () {
-  tom3Sound.currentTime = 0;
-  tom3Sound.play();
+// Hi-hat left event listener using the helper function
+onPointerDown(
+  document.querySelector(".left-cymbal-image"),
+  document.getElementById("hihat-left-sound"),
+);
 
-  tom3.classList.add("is-animating");
-  setTimeout(() => {
-    tom3.classList.remove("is-animating");
-  }, 600);
-});
+// Snare event listener using the helper function
+onPointerDown(
+  document.querySelector(".snare-image"),
+  document.getElementById("snare-sound"),
+);
 
-var tom4 = document.querySelector(".tom4-image");
-var tom4Sound = document.getElementById("tom4-sound");
-tom4.addEventListener("pointerdown", function () {
-  tom4Sound.currentTime = 0;
-  tom4Sound.play();
+/**
+ * Helper function to add pointerdown event listener to a drum element and play the corresponding sound with animation.
+ * @param {target element} element
+ * @param {sound event} sound
+ */
+function onPointerDown(element, sound) {
+  element.addEventListener("pointerdown", function () {
+    sound.currentTime = 0;
+    sound.play();
 
-  tom4.classList.add("is-animating");
-  setTimeout(() => {
-    tom4.classList.remove("is-animating");
-  }, 600);
-});
-
-var hihatLeft = document.querySelector(".left-cymbal-image");
-var hihatLeftSound = document.getElementById("hihat-left-sound");
-hihatLeft.addEventListener("pointerdown", function () {
-  hihatLeftSound.currentTime = 0;
-  hihatLeftSound.play();
-
-  hihatLeft.classList.add("is-animating");
-  setTimeout(() => {
-    hihatLeft.classList.remove("is-animating");
-  }, 600);
-});
-
-var snare = document.querySelector(".snare-image");
-var snareSound = document.getElementById("snare-sound");
-snare.addEventListener("pointerdown", function () {
-  snareSound.currentTime = 0;
-  snareSound.play();
-
-  snare.classList.add("is-animating");
-  setTimeout(() => {
-    snare.classList.remove("is-animating");
-  }, 600);
-});
+    element.classList.add("is-animating");
+    setTimeout(() => {
+      element.classList.remove("is-animating");
+    }, 600);
+  });
+}
