@@ -59,7 +59,13 @@ onPointerDown(
 function onPointerDown(element, sound) {
   element.addEventListener("pointerdown", function () {
     sound.currentTime = 0;
-    sound.play();
+    const playPromise = sound.play();
+    if (playPromise !== undefined) {
+      playPromise.catch((error) => {
+        // Auto-play was prevented, show a message to the user.
+        console.log("Touch again to play.");
+      });
+    }
 
     element.classList.add("is-animating");
     setTimeout(() => {
