@@ -10,7 +10,7 @@
  */
 var kicks = document.querySelector(".kick-image");
 var kicksSound = document.getElementById("kick-sound");
-kicks.addEventListener("click", function () {
+kicks.addEventListener("pointerdown", function () {
   kicksSound.currentTime = 0;
   kicksSound.play();
 
@@ -22,7 +22,7 @@ kicks.addEventListener("click", function () {
 
 var tom1 = document.querySelector(".tom1-image");
 var tom1Sound = document.getElementById("tom1-sound");
-tom1.addEventListener("click", function () {
+tom1.addEventListener("pointerdown", function () {
   tom1Sound.currentTime = 0;
   tom1Sound.play();
 
@@ -34,7 +34,7 @@ tom1.addEventListener("click", function () {
 
 var tom2 = document.querySelector(".tom2-image");
 var tom2Sound = document.getElementById("tom2-sound");
-tom2.addEventListener("click", function () {
+tom2.addEventListener("pointerdown", function () {
   tom2Sound.currentTime = 0;
   tom2Sound.play();
 
@@ -46,7 +46,7 @@ tom2.addEventListener("click", function () {
 
 var tom3 = document.querySelector(".tom3-image");
 var tom3Sound = document.getElementById("tom3-sound");
-tom3.addEventListener("click", function () {
+tom3.addEventListener("pointerdown", function () {
   tom3Sound.currentTime = 0;
   tom3Sound.play();
 
@@ -58,7 +58,7 @@ tom3.addEventListener("click", function () {
 
 var tom4 = document.querySelector(".tom4-image");
 var tom4Sound = document.getElementById("tom4-sound");
-tom4.addEventListener("click", function () {
+tom4.addEventListener("pointerdown", function () {
   tom4Sound.currentTime = 0;
   tom4Sound.play();
 
@@ -70,7 +70,7 @@ tom4.addEventListener("click", function () {
 
 var hihatLeft = document.querySelector(".left-cymbal-image");
 var hihatLeftSound = document.getElementById("hihat-left-sound");
-hihatLeft.addEventListener("click", function () {
+hihatLeft.addEventListener("pointerdown", function () {
   hihatLeftSound.currentTime = 0;
   hihatLeftSound.play();
 
@@ -82,7 +82,7 @@ hihatLeft.addEventListener("click", function () {
 
 var snare = document.querySelector(".snare-image");
 var snareSound = document.getElementById("snare-sound");
-snare.addEventListener("click", function () {
+snare.addEventListener("pointerdown", function () {
   snareSound.currentTime = 0;
   snareSound.play();
 
