@@ -9,6 +9,42 @@
  * Date: April 2026
  */
 let touchCounter = 0;
+/**
+ * Helper function to add pointerdown event listener to a drum element and play the corresponding sound with animation.
+ * @param {target element} element
+ * @param {sound event} sound
+ */
+function onPointerDown(element, sound) {
+  touchCounter++;
+  if (touchCounter <= 1) {
+    element.addEventListener("click", () => {
+      // Handles the first click autoplay issue for desktop browsers
+      playSound(sound);
+      animateDrum(element);
+    });
+  } else {
+    // Handles mulit-touch events for mobile devices
+    element.addEventListener("pointerdown", () => {
+      playSound(sound);
+      animateDrum(element);
+    });
+  }
+}
+
+// Function to play the sound, resetting the current time to allow for rapid consecutive hits
+function playSound(sound) {
+  sound.currentTime = 0;
+  sound.play();
+}
+
+// Function to animate the drum element by adding and removing the "is-animating" class
+function animateDrum(element) {
+  element.classList.add("is-animating");
+  setTimeout(() => {
+    element.classList.remove("is-animating");
+  }, 600);
+}
+
 // Kick event listener using the helper function
 onPointerDown(
   document.querySelector(".kick-image"),
@@ -50,39 +86,3 @@ onPointerDown(
   document.querySelector(".snare-image"),
   document.getElementById("snare-sound"),
 );
-
-/**
- * Helper function to add pointerdown event listener to a drum element and play the corresponding sound with animation.
- * @param {target element} element
- * @param {sound event} sound
- */
-function onPointerDown(element, sound) {
-  touchCounter++;
-  if (touchCounter <= 1) {
-    element.addEventListener("click", () => {
-      // Handles the first click autoplay issue for desktop browsers
-      playSound(sound);
-      animateDrum(element);
-    });
-  } else {
-    // Handles mulit-touch events for mobile devices
-    element.addEventListener("pointerdown", () => {
-      playSound(sound);
-      animateDrum(element);
-    });
-  }
-}
-
-// Function to play the sound, resetting the current time to allow for rapid consecutive hits
-function playSound(sound) {
-  sound.currentTime = 0;
-  sound.play();
-}
-
-// Function to animate the drum element by adding and removing the "is-animating" class
-function animateDrum(element) {
-  element.classList.add("is-animating");
-  setTimeout(() => {
-    element.classList.remove("is-animating");
-  }, 600);
-}
