@@ -9,11 +9,6 @@
  * Date: April 2026
  */
 let touchCounter = 0;
-// Kick event listener using the helper function
-onPointerDown(
-  document.querySelector(".kick-image"),
-  document.getElementById("kick-sound"),
-);
 
 // Tom 1 event listener using the helper function
 onPointerDown(
@@ -49,6 +44,12 @@ onPointerDown(
 onPointerDown(
   document.querySelector(".snare-image"),
   document.getElementById("snare-sound"),
+);
+
+// Kick event listener using the helper function
+onPointerDown(
+  document.querySelector(".kick-image"),
+  document.getElementById("kick-sound"),
 );
 
 /**
