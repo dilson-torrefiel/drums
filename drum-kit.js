@@ -58,7 +58,7 @@ onPointerDown(
  */
 function onPointerDown(element, sound) {
   touchCounter++;
-  if (touchCounter === 1) {
+  if (touchCounter <= 1) {
     element.addEventListener("click", function () {
       // Handles the first click autoplay issue for desktop browsers
       playSound(sound);
