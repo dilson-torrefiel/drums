@@ -57,6 +57,10 @@ onPointerDown(
  * @param {sound event} sound
  */
 function onPointerDown(element, sound) {
+  element.addEventListener("click", function () {
+    // Handles the first click autoplay issue for desktop browsers
+  });
+  // Handles mulit-touch events for mobile devices
   element.addEventListener("pointerdown", function () {
     sound.currentTime = 0;
     const playPromise = sound.play();
