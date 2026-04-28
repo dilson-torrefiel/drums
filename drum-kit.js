@@ -59,14 +59,14 @@ onPointerDown(
 function onPointerDown(element, sound) {
   touchCounter++;
   if (touchCounter <= 1) {
-    element.addEventListener("click", function () {
+    element.addEventListener("click", () => {
       // Handles the first click autoplay issue for desktop browsers
       playSound(sound);
       animateDrum(element);
     });
   } else {
     // Handles mulit-touch events for mobile devices
-    element.addEventListener("pointerdown", function () {
+    element.addEventListener("pointerdown", () => {
       playSound(sound);
       animateDrum(element);
     });
