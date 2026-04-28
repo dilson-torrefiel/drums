@@ -61,25 +61,28 @@ function onPointerDown(element, sound) {
   if (touchCounter === 1) {
     element.addEventListener("click", function () {
       // Handles the first click autoplay issue for desktop browsers
-      sound.currentTime = 0;
-      sound.play();
+      playSound(sound);
+      animateDrum(element);
     });
   } else {
     // Handles mulit-touch events for mobile devices
     element.addEventListener("pointerdown", function () {
-      sound.currentTime = 0;
-      const playPromise = sound.play();
-      if (playPromise !== undefined) {
-        playPromise.catch((error) => {
-          // Auto-play was prevented, show a message to the user.
-          console.log("Touch again to play.");
-        });
-      }
-
-      element.classList.add("is-animating");
-      setTimeout(() => {
-        element.classList.remove("is-animating");
-      }, 600);
+      playSound(sound);
+      animateDrum(element);
     });
   }
+}
+
+// Function to play the sound, resetting the current time to allow for rapid consecutive hits
+function playSound(sound) {
+  sound.currentTime = 0;
+  sound.play();
+}
+
+// Function to animate the drum element by adding and removing the "is-animating" class
+function animateDrum(element) {
+  element.classList.add("is-animating");
+  setTimeout(() => {
+    element.classList.remove("is-animating");
+  }, 600);
 }
