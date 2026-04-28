@@ -8,7 +8,7 @@
  * Author: Dilson Torrefiel
  * Date: April 2026
  */
-
+let touchCounter = 0;
 // Kick event listener using the helper function
 onPointerDown(
   document.querySelector(".kick-image"),
@@ -57,23 +57,29 @@ onPointerDown(
  * @param {sound event} sound
  */
 function onPointerDown(element, sound) {
-  element.addEventListener("click", function () {
-    // Handles the first click autoplay issue for desktop browsers
-  });
-  // Handles mulit-touch events for mobile devices
-  element.addEventListener("pointerdown", function () {
-    sound.currentTime = 0;
-    const playPromise = sound.play();
-    if (playPromise !== undefined) {
-      playPromise.catch((error) => {
-        // Auto-play was prevented, show a message to the user.
-        console.log("Touch again to play.");
-      });
-    }
+  touchCounter++;
+  if (touchCounter === 1) {
+    element.addEventListener("click", function () {
+      // Handles the first click autoplay issue for desktop browsers
+      sound.currentTime = 0;
+      sound.play();
+    });
+  } else {
+    // Handles mulit-touch events for mobile devices
+    element.addEventListener("pointerdown", function () {
+      sound.currentTime = 0;
+      const playPromise = sound.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((error) => {
+          // Auto-play was prevented, show a message to the user.
+          console.log("Touch again to play.");
+        });
+      }
 
-    element.classList.add("is-animating");
-    setTimeout(() => {
-      element.classList.remove("is-animating");
-    }, 600);
-  });
+      element.classList.add("is-animating");
+      setTimeout(() => {
+        element.classList.remove("is-animating");
+      }, 600);
+    });
+  }
 }
