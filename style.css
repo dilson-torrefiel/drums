@@ -1,11 +1,11 @@
 body {
   background: linear-gradient(90deg, #0cc0df, #ffde59);
 }
-
 .drumset {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  border-radius: 50%;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 .drum {
@@ -45,16 +45,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+.zion-image {
+  margin-top: 20px;
+  width: 200px;
+  height: 250px;
+}
 .title {
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin: 0px;
 }
 footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
 }
 
 /* Animations */
@@ -87,8 +90,26 @@ footer {
     transform: rotate(0deg) scale(1);
   }
 }
+@media (min-width: 1201px) {
+  .container {
+    padding: 10px 250px;
+  }
+}
+@media (max-width: 1001px) and (min-width: 1200px) {
+  .container {
+    padding: 10px 20px;
+  }
+}
 
-@media (max-width: 500px) and (min-width: 375px) {
+@media (max-width: 801px) and (min-width: 1000px) {
+  .container {
+    padding: 10px 10px;
+  }
+}
+@media (max-width: 800px) and (min-width: 375px) {
+  .container {
+    padding: 10px 5px;
+  }
   .tom3-image {
     width: 80px;
     height: 50px;
@@ -111,8 +132,8 @@ footer {
     width: 90px;
   }
   .zion-image {
-    width: 200px;
-    height: auto;
+    width: 150px;
+    height: 200px;
   }
   .title {
     margin-top: 10px;
