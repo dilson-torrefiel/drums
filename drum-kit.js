@@ -21,15 +21,11 @@ function onPointerDown(element, sound) {
     animateDrum(element);
   });
 }
-function onKeyDown(element, sound) {
-  // Handles mulit-touch events for mobile devices
-  element.addEventListener("keydown", () => {
-    playSound(sound);
-    animateDrum(element);
-  });
-}
 
-// Function to play the sound, resetting the current time to allow for rapid consecutive hits
+/**
+ * Function to play the sound, resetting the current time to allow for rapid consecutive hits
+ * @param {sound} HTMLAudioElement to play
+ */
 function playSound(sound) {
   sound.currentTime = 0;
   const soundPromise = sound.play();
@@ -40,7 +36,10 @@ function playSound(sound) {
   }
 }
 
-// Function to animate the drum element by adding and removing the "is-animating" class
+/**
+ * Animates the drum element by adding and removing the "is-animating" class
+ * @param {element} html element to animate
+ */
 function animateDrum(element) {
   element.classList.add("is-animating");
   setTimeout(() => {
@@ -48,7 +47,10 @@ function animateDrum(element) {
   }, 600);
 }
 
-// Get all image elements and add event listeners
+/**
+ * Get all image elements and add event listeners to play the corresponding sound when each drum image is clicked. The function checks the class of each image element to determine which sound to play and which drum element to animate.
+ * The event listener is added using the `onPointerDown` helper function, which handles the pointerdown event and plays the sound while animating the drum element.
+ */
 document.querySelectorAll(".drum img").forEach((element) => {
   if (element.classList.contains("kick-image")) {
     onPointerDown(element, document.getElementById("kick-sound"));
@@ -67,7 +69,16 @@ document.querySelectorAll(".drum img").forEach((element) => {
   }
 });
 
-// Get all keyboard keys and add event listeners
+/**
+ * Handles Kyeboard events to play the corresponding drum sound and animate the drum element when a specific key is pressed. The keys are mapped as follows:
+ * A - Snare
+ * S - Cymbal
+ * D - Kick
+ * J - Tom 3
+ * K - Tom 4
+ * L - Tom 1
+ * ; - Tom 2
+ */
 window.addEventListener("keydown", (event) => {
   var key = event.key.toUpperCase();
   switch (key) {
