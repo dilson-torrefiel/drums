@@ -8,49 +8,6 @@
  * Author: Dilson Torrefiel
  * Date: April 2026
  */
-let touchCounter = 0;
-
-// Tom 1 event listener using the helper function
-onPointerDown(
-  document.querySelector(".tom1-image"),
-  document.getElementById("tom1-sound"),
-);
-
-// Tom 2 event listener using the helper function
-onPointerDown(
-  document.querySelector(".tom2-image"),
-  document.getElementById("tom2-sound"),
-);
-
-// Tom 3 event listener using the helper function
-onPointerDown(
-  document.querySelector(".tom3-image"),
-  document.getElementById("tom3-sound"),
-);
-
-// Tom 4 event listener using the helper function
-onPointerDown(
-  document.querySelector(".tom4-image"),
-  document.getElementById("tom4-sound"),
-);
-
-// Hi-hat left event listener using the helper function
-onPointerDown(
-  document.querySelector(".left-cymbal-image"),
-  document.getElementById("hihat-left-sound"),
-);
-
-// Snare event listener using the helper function
-onPointerDown(
-  document.querySelector(".snare-image"),
-  document.getElementById("snare-sound"),
-);
-
-// Kick event listener using the helper function
-onPointerDown(
-  document.querySelector(".kick-image"),
-  document.getElementById("kick-sound"),
-);
 
 /**
  * Helper function to add pointerdown event listener to a drum element and play the corresponding sound with animation.
@@ -58,26 +15,29 @@ onPointerDown(
  * @param {sound event} sound
  */
 function onPointerDown(element, sound) {
-  if (touchCounter > 1) {
-    element.addEventListener("pointerdown", () => {
-      // Handles the first click autoplay issue for desktop browsers
-      playSound(sound);
-      animateDrum(element);
-    });
-  } else {
-    touchCounter++;
-    // Handles mulit-touch events for mobile devices
-    element.addEventListener("click", () => {
-      playSound(sound);
-      animateDrum(element);
-    });
-  }
+  // Handles mulit-touch events for mobile devices
+  element.addEventListener("pointerdown", () => {
+    playSound(sound);
+    animateDrum(element);
+  });
+}
+function onKeyDown(element, sound) {
+  // Handles mulit-touch events for mobile devices
+  element.addEventListener("keydown", () => {
+    playSound(sound);
+    animateDrum(element);
+  });
 }
 
 // Function to play the sound, resetting the current time to allow for rapid consecutive hits
 function playSound(sound) {
   sound.currentTime = 0;
-  sound.play();
+  const soundPromise = sound.play();
+  if (soundPromise !== undefined) {
+    soundPromise.catch((error) => {
+      console.log("Touch again to play sound:");
+    });
+  }
 }
 
 // Function to animate the drum element by adding and removing the "is-animating" class
@@ -87,3 +47,55 @@ function animateDrum(element) {
     element.classList.remove("is-animating");
   }, 600);
 }
+
+// Get all image elements and add event listeners
+document.querySelectorAll(".drum img").forEach((element) => {
+  if (element.classList.contains("kick-image")) {
+    onPointerDown(element, document.getElementById("kick-sound"));
+  } else if (element.classList.contains("cymbal-image")) {
+    onPointerDown(element, document.getElementById("cymbal-sound"));
+  } else if (element.classList.contains("snare-image")) {
+    onPointerDown(element, document.getElementById("snare-sound"));
+  } else if (element.classList.contains("tom1-image")) {
+    onPointerDown(element, document.getElementById("tom1-sound"));
+  } else if (element.classList.contains("tom2-image")) {
+    onPointerDown(element, document.getElementById("tom2-sound"));
+  } else if (element.classList.contains("tom3-image")) {
+    onPointerDown(element, document.getElementById("tom3-sound"));
+  } else if (element.classList.contains("tom4-image")) {
+    onPointerDown(element, document.getElementById("tom4-sound"));
+  }
+});
+
+// Get all keyboard keys and add event listeners
+window.addEventListener("keydown", (event) => {
+  var key = event.key.toUpperCase();
+  if (key === "A") {
+    playSound(document.getElementById("snare-sound"));
+    animateDrum(document.querySelector(".snare img"));
+  }
+  if (key === "S") {
+    playSound(document.getElementById("cymbal-sound"));
+    animateDrum(document.querySelector(".cymbal img"));
+  }
+  if (key === "D") {
+    playSound(document.getElementById("kick-sound"));
+    animateDrum(document.querySelector(".kicks img"));
+  }
+  if (key === "J") {
+    playSound(document.getElementById("tom3-sound"));
+    animateDrum(document.querySelector(".tom3 img"));
+  }
+  if (key === "K") {
+    playSound(document.getElementById("tom4-sound"));
+    animateDrum(document.querySelector(".tom4 img"));
+  }
+  if (key === "L") {
+    playSound(document.getElementById("tom1-sound"));
+    animateDrum(document.querySelector(".tom1 img"));
+  }
+  if (key === ";") {
+    playSound(document.getElementById("tom2-sound"));
+    animateDrum(document.querySelector(".tom2 img"));
+  }
+});

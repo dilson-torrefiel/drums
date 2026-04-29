@@ -28,6 +28,19 @@ body {
   justify-content: center;
   align-items: center;
 }
+.cymbal,
+.tom1,
+.tom2,
+.tom3,
+.tom4,
+.snare,
+.kicks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .cymbal {
   height: 80px;
   width: 80px;

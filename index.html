@@ -26,37 +26,55 @@
       <div class="drumset">
         <div class="drum left">
           <div class="hihat-left">
-            <img
-              src="./images/cymbals.png"
-              alt="cymbal"
-              class="cymbal left-cymbal-image"
-            />
-            <audio id="hihat-left-sound" src="./sounds/crash.mp3"></audio>
+            <div class="cymbal">
+              <kbd class="key">S</kbd>
+              <img
+                src="./images/cymbals.png"
+                alt="cymbal"
+                class="cymbal cymbal-image"
+              />
+              <audio id="cymbal-sound" src="./sounds/crash.mp3"></audio>
+            </div>
           </div>
           <div class="snare">
-            <img src="./images/snare.png" alt="snare" class="snare-image" />
+            <img
+              src="./images/snare.png"
+              alt="snare"
+              class="snare-image mt-3"
+            />
+            <kbd class="key key-A" tabindex="0">A</kbd>
             <audio id="snare-sound" src="./sounds/snare.mp3"></audio>
           </div>
         </div>
         <div class="drum middle">
           <div class="tom3-tom4">
-            <img src="./images/tom3.png" alt="Tom" class="tom3-image" />
-            <audio id="tom3-sound" src="./sounds/tom-3.mp3"></audio>
-            <img src="./images/tom4.png" alt="Tom" class="tom4-image" />
-            <audio id="tom4-sound" src="./sounds/tom-4.mp3"></audio>
+            <div class="tom3">
+              <img src="./images/tom3.png" alt="Tom" class="tom3-image" />
+              <kbd class="key">J</kbd>
+              <audio id="tom3-sound" src="./sounds/tom-3.mp3"></audio>
+            </div>
+
+            <div class="tom4">
+              <img src="./images/tom4.png" alt="Tom" class="tom4-image" />
+              <kbd class="key">K</kbd>
+              <audio id="tom4-sound" src="./sounds/tom-4.mp3"></audio>
+            </div>
           </div>
           <div class="kicks">
             <img src="./images/kicks.png" alt="Kick" class="kick-image" />
+            <kbd class="key">D</kbd>
             <audio id="kick-sound" src="./sounds/kick-bass.mp3"></audio>
           </div>
         </div>
         <div class="drum right">
           <div class="tom1">
+            <kbd class="key">L</kbd>
             <img src="./images/tom1.png" alt="Tom" class="tom1-image" />
             <audio id="tom1-sound" src="./sounds/tom-1.mp3"></audio>
           </div>
           <div class="tom2">
             <img src="./images/tom2.png" alt="Tom" class="tom2-image" />
+            <kbd class="key">;</kbd>
             <audio id="tom2-sound" src="./sounds/tom-2.mp3"></audio>
           </div>
         </div>
