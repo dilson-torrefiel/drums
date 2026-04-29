@@ -70,32 +70,36 @@ document.querySelectorAll(".drum img").forEach((element) => {
 // Get all keyboard keys and add event listeners
 window.addEventListener("keydown", (event) => {
   var key = event.key.toUpperCase();
-  if (key === "A") {
-    playSound(document.getElementById("snare-sound"));
-    animateDrum(document.querySelector(".snare img"));
-  }
-  if (key === "S") {
-    playSound(document.getElementById("cymbal-sound"));
-    animateDrum(document.querySelector(".cymbal img"));
-  }
-  if (key === "D") {
-    playSound(document.getElementById("kick-sound"));
-    animateDrum(document.querySelector(".kicks img"));
-  }
-  if (key === "J") {
-    playSound(document.getElementById("tom3-sound"));
-    animateDrum(document.querySelector(".tom3 img"));
-  }
-  if (key === "K") {
-    playSound(document.getElementById("tom4-sound"));
-    animateDrum(document.querySelector(".tom4 img"));
-  }
-  if (key === "L") {
-    playSound(document.getElementById("tom1-sound"));
-    animateDrum(document.querySelector(".tom1 img"));
-  }
-  if (key === ";") {
-    playSound(document.getElementById("tom2-sound"));
-    animateDrum(document.querySelector(".tom2 img"));
+  switch (key) {
+    case "A":
+      playSound(document.getElementById("snare-sound"));
+      animateDrum(document.querySelector(".snare img"));
+      break;
+    case "S":
+      playSound(document.getElementById("cymbal-sound"));
+      animateDrum(document.querySelector(".cymbal img"));
+      break;
+    case "D":
+      playSound(document.getElementById("kick-sound"));
+      animateDrum(document.querySelector(".kicks img"));
+      break;
+    case "J":
+      playSound(document.getElementById("tom3-sound"));
+      animateDrum(document.querySelector(".tom3 img"));
+      break;
+    case "K":
+      playSound(document.getElementById("tom4-sound"));
+      animateDrum(document.querySelector(".tom4 img"));
+      break;
+    case "L":
+      playSound(document.getElementById("tom1-sound"));
+      animateDrum(document.querySelector(".tom1 img"));
+      break;
+    case ";":
+      playSound(document.getElementById("tom2-sound"));
+      animateDrum(document.querySelector(".tom2 img"));
+      break;
+    default:
+      break;
   }
 });
