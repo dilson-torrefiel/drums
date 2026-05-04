@@ -66,11 +66,20 @@ body {
 .title {
   margin: 0px;
 }
-footer {
+
+.footer {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap;
   justify-content: center;
+  align-content: center;
   align-items: center;
+}
+.margin-o {
+  margin: 0px;
+}
+.padding-0 {
+  padding: 0px;
 }
 
 /* Animations */
